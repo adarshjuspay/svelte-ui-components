@@ -6,10 +6,14 @@
   let accordionRef: HTMLElement;
 
   function updateMaxHeight() {
-    if (expand) {
-      accordionRef.style.maxHeight = `${maxHeight}px`;
-    } else {
-      accordionRef.style.maxHeight = '0';
+    try {
+      if (expand) {
+        accordionRef.style.maxHeight = `${maxHeight}px`;
+      } else {
+        accordionRef.style.maxHeight = '0';
+      }
+    } catch (e) {
+      console.error('Error while updating style of accordian', e);
     }
   }
 
